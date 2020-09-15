@@ -22,17 +22,17 @@ _npc setName [_npcName,"",""];
 _npc allowDamage false;
 { _npc disableAI _x } forEach ["MOVE","FSM","TARGET","AUTOTARGET"];
 
+_startsWith =
+{
+    private ["_needle", "_testArr"];
+    _needle = _this select 0;
+    _testArr = toArray (_this select 1);
+    _testArr resize count toArray _needle;
+    (toString _testArr == _needle)
+};
+
 if (hasInterface) then
 {
-	_startsWith =
-	{
-		private ["_needle", "_testArr"];
-		_needle = _this select 0;
-		_testArr = toArray (_this select 1);
-		_testArr resize count toArray _needle;
-		(toString _testArr == _needle)
-	};
-
 	switch (true) do
 	{
 		case (["GenStore", _npcName] call _startsWith):
@@ -56,6 +56,21 @@ if (hasInterface) then
 	_npc addAction ["<img image='client\icons\money.paa'/> Sell last vehicle contents", "client\systems\selling\sellVehicleItems.sqf", [], 0.97, false, true, "", STORE_ACTION_CONDITION + " && " + SELL_VEH_CONTENTS_CONDITION];
 	_npc addAction ["<img image='client\icons\money.paa'/> Sell last vehicle", "client\systems\selling\sellVehicle.sqf", [], 0.96, false, true, "", STORE_ACTION_CONDITION + " && " + SELL_VEH_CONTENTS_CONDITION];
 	_npc addAction ["<img image='client\icons\repair.paa'/> Paint vehicle", { createDialog "A3W_vehPaintMenu" }, [], 0.999, false, true, "", STORE_ACTION_CONDITION + " && " + SELL_VEH_CONTENTS_CONDITION];
+};
+
+_ARMORYNPC = false;
+switch (true) do
+{
+    case (["GenStore", _npcName] call _startsWith):
+    {
+        [_npc, "Gear Store (Armory)"] spawn TER_fnc_addShop;
+        _ARMORYNPC = true;
+    };
+    case (["GunStore", _npcName] call _startsWith):
+    {
+        [_npc, "Gear Store (Armory)"] spawn TER_fnc_addShop;
+        _ARMORYNPC = true;
+    };
 };
 
 if (isServer) then
@@ -212,6 +227,13 @@ if (isServer) then
 			_npc setVariable ["storeNPC_cashDesk", netId _desk, true];
 		};
 	} forEach (call storeOwnerConfig);
+
+    if (_ARMORYNPC) then
+    {
+        _inv = [];
+        {_inv append [_x select 1, _x select 2, true]} forEach (call allArsenalItems);
+        [_npc, _inv] spawn TER_fnc_addShopCargo;
+    };
 };
 
 if (isServer) then
