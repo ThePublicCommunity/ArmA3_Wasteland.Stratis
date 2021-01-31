@@ -10558,7 +10558,7 @@ class Mission
 			dataType="Marker";
 			position[]={1920,0,6464};
 			name="marker_175";
-			text="Discord for chat and communication - https://discord.gg/ucyuyPc";
+			text="Discord for chat and communication - https://discord.gg/n7NGmYZ";
 			type="mil_join";
 			colorName="ColorWEST";
 			id=957;
@@ -10569,7 +10569,7 @@ class Mission
 			dataType="Marker";
 			position[]={1920,0,6528};
 			name="marker_176";
-			text="Community Website - https://republic.community";
+			text="Community Website - https://thepublic.community";
 			type="mil_join";
 			colorName="ColorEAST";
 			id=958;
