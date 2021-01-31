@@ -43,6 +43,8 @@ _resupplyThread = [_vehicle, _unit] spawn
 	_variant = _vehicle getVariable ["A3W_vehicleVariant", ""];
 	if (_variant != "") then { _variant = "variant_" + _variant };
 
+	if (_vehClass == "C_IDAP_UAV_06_antimine_F") then {_price = 200000};
+
 	{
 		if (_vehClass == _x select 1 && (_variant == "" || {_variant in _x})) exitWith
 		{
