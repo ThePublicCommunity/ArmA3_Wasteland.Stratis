@@ -650,7 +650,9 @@ headArray = compileFinal str
 	["Racing Helmet (Fuel)", "H_RacingHelmet_1_F", 25, "hat"],
 	["Racing Helmet (Bluking)", "H_RacingHelmet_2_F", 25, "hat"],
 	["Racing Helmet (Redstone)", "H_RacingHelmet_3_F", 25, "hat"],
-	["Racing Helmet (Vrana)", "H_RacingHelmet_4_F", 25, "hat"]
+	["Racing Helmet (Vrana)", "H_RacingHelmet_4_F", 25, "hat"],
+	["Special Purpose Helmet (Hex)", "H_HelmetO_ViperSP_hex_F", 150000, "hat"],
+	["Special Purpose Helmet (Green Hex)", "H_HelmetO_ViperSP_ghex_F", 150000, "hat"]
 ];
 
 uniformArray = compileFinal str
@@ -882,7 +884,7 @@ genItemArray = compileFinal str
 	["AL-6 Pelican Medical UAV", "B_UAV_06_medical_backpack_F", 1000, "backpack"],
 	["AL-6 Pelican Medical UAV", "O_UAV_06_medical_backpack_F", 1000, "backpack"],
 	["AL-6 Pelican Medical UAV", "I_UAV_06_medical_backpack_F", 1000, "backpack"],
-	["AL-6 Pelican Demining UAV", "C_IDAP_UAV_06_antimine_backpack_F", 10000, "backpack"],
+	["AL-6 Pelican Demining UAV", "C_IDAP_UAV_06_antimine_backpack_F", 200000, "backpack"],
 	["ED-1E Camera UGV", "B_UGV_02_Science_backpack_F", 1000, "backpack"],
 	["ED-1E Camera UGV", "O_UGV_02_Science_backpack_F", 1000, "backpack"],
 	["ED-1E Camera UGV", "I_UGV_02_Science_backpack_F", 1000, "backpack"],
